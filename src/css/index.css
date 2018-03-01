@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}
+
+.layout {
+    display: flex;
+    flex-direction: column;
+}
+
+.layout-top {
+}
+
+.layout-bottom {
+}
+
+.layout-center {
+    flex: 1;
+    display: flex;
+}
+
+.layout-left {
+}
+
+.layout-right {
+    flex: 1;
+    overflow: auto;
+}
+
+.sub-menu {
+    display: none;
+}

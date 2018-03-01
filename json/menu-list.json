@@ -1,0 +1,61 @@
+[
+  {
+    "id": "1",
+    "text": "General",
+    "icon": "laptop",
+    "children": [
+      {
+        "id": "1-1",
+        "text": "Button按钮",
+        "icon": "",
+        "url": "ButtonDemo",
+        "component": "ButtonDemo"
+      },
+      {
+        "id": "1-2",
+        "text": "图标",
+        "icon": "",
+        "url": "ButtonDemo",
+        "component": "IconDemo"
+      },
+      {
+        "id": "1-3",
+        "text": "FRAME",
+        "icon": "",
+        "url": "https://www.baidu.com",
+        "component": "JFrame"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "text": "Layout",
+    "icon": "line-chart",
+    "children": [
+      {
+        "id": "2-1",
+        "text": "Grid栅格",
+        "icon": "appstore-o",
+        "url": "GirdDemo",
+        "component": "GirdDemo"
+      },
+      {
+        "id": "2-2",
+        "text": "Layout布局",
+        "icon": "appstore-o",
+        "url": "LayoutDemo",
+        "component": "LayoutDemo"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "text": "维保",
+    "icon": "contacts"
+  },
+  {
+    "id": "4",
+    "text": "维修",
+    "icon": "pie-chart"
+  }
+]
