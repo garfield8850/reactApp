@@ -9,6 +9,9 @@
     "webpack": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "theme": {
+    "primary-color": "#1DA57A"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {

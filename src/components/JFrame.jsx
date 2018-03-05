@@ -5,16 +5,16 @@ class JFrame extends Component {
 
     constructor(props) {
         super(props);
-        console.log(this.props.src)
         this.state = {
             path: ''
         }
+
     }
 
 
     render() {
         return (
-            <iframe src={this.state.path} style={{width: '100%', height: '100%', border: 'none'}}></iframe>
+            <iframe src={this.props.src} style={{width: '100%', height: '100%', border: 'none'}}></iframe>
         )
     }
 

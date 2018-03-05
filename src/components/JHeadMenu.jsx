@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Dropdown, Menu, Icon, Avatar, Badge, Popover} from 'antd';
-import RightSilder from "RightSilder";
+import PropTypes from 'prop-types';
 
 class JHeadMenu extends Component {
 
@@ -30,7 +30,8 @@ class JHeadMenu extends Component {
     }
 
     changeMode() {
-        this.refs.rightSilder.show()
+        console.log(this.context)
+        this.context.showRightSlider()
     }
 
 
@@ -52,11 +53,14 @@ class JHeadMenu extends Component {
                 <Dropdown overlay={this.menu} placement="bottomRight">
                     <div className="user_dropdown"><Avatar className="user_photo" icon="user"/><span className="login_name">admin</span></div>
                 </Dropdown>
-                <RightSilder ref="rightSilder"></RightSilder>
             </div>
         )
     }
 
 }
+
+JHeadMenu.contextTypes = {
+    showRightSlider: PropTypes.func
+};
 
 export default JHeadMenu;

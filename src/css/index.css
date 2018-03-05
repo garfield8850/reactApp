@@ -66,8 +66,12 @@ body {
     height: 100%;
 }
 
+.user_photo {
+    margin-right: 8px!important;
+}
+
 .message_badge {
-    margin-right: 10px;
+    margin-right: 20px !important;
 }
 
 .message_icon {
@@ -90,8 +94,8 @@ body {
 .right_silder {
     width: 0px;
     position: fixed;
-    background: #002140;
-    display: none;
+    background: #ddd;
+    /*display: none;*/
     height: 100%;
     top: 64px;
     right: 0;
@@ -99,7 +103,7 @@ body {
 }
 
 .right_silder.show {
-    width: 200px;
+    width: 240px;
     display: block;
     animation: rightSilder 1s;
     -webkit-animation: rightSilder 1s;
@@ -112,9 +116,12 @@ body {
     -webkit-animation: rightSilderHide 1s;
 }
 
+.right_silder .list_item {
+}
+
 @keyframes rightSilderHide {
     from {
-        width: 200px;
+        width: 240px;
     }
     to {
         width: 0px;
@@ -124,7 +131,7 @@ body {
 @-webkit-keyframes rightSilderHide /*Safari and Chrome*/
 {
     from {
-        width: 200px;
+        width: 240px;
     }
     to {
         width: 0px;
@@ -136,7 +143,7 @@ body {
         width: 0px;
     }
     to {
-        width: 200px;
+        width: 240px;
     }
 }
 
@@ -146,6 +153,7 @@ body {
         width: 0px;
     }
     to {
-        width: 200px;
+        width: 240px;
     }
 }
+
