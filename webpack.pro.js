@@ -1,7 +1,10 @@
 var path = require('path');
 var webpack = require('webpack');
+var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var CopyWebpackPlugin = require("copy-webpack-plugin");
+var CleanWebpackPlugin = require("clean-webpack-plugin");
 var ROOT_PATH = path.resolve(__dirname);
 var APP_PATH = path.resolve(ROOT_PATH, 'src');
 var BUILD_PATH = path.resolve(ROOT_PATH, 'dist');
@@ -56,8 +59,9 @@ module.exports = {
         extensions: ['*', '.js', '.jsx'],
     },
     devtool: 'eval-source-map', //开发环境
+    // devtool: 'false',
     devServer: {
-        compress: false, // 启用Gzip压缩
+        compress: true, // 启用Gzip压缩
         historyApiFallback: true, // 为404页启用多个路径
         hot: true, // 模块热更新，配置HotModuleReplacementPlugin
         https: false, // 适用于ssl安全证书网站
@@ -76,6 +80,14 @@ module.exports = {
                 to: BUILD_PATH
             }
         ])
+        // new CleanWebpackPlugin(
+        //     ['dist'],
+        //     {
+        //         root: ROOT_PATH,       　　　　　　　　　　//根目录
+        //         verbose: true,        　　　　　　　　　　//开启在控制台输出信息
+        //         dry: false
+        //     })
+
     ]
 
 }

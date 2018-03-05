@@ -1,7 +1,10 @@
 var path = require('path');
 var webpack = require('webpack');
+var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+var HtmlwebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var CopyWebpackPlugin = require("copy-webpack-plugin");
+var CleanWebpackPlugin = require("clean-webpack-plugin");
 var ROOT_PATH = path.resolve(__dirname);
 var APP_PATH = path.resolve(ROOT_PATH, 'src');
 var BUILD_PATH = path.resolve(ROOT_PATH, 'dist');
@@ -13,7 +16,8 @@ module.exports = {
     output: {
         path: BUILD_PATH,
         publicPath: 'http://localhost:4000/dist',
-        filename: 'app.js'
+        filename: 'app.js',
+        sourceMapFilename: '[name].map'
     },
     //babel重要的loader在这里
     module: {
@@ -57,25 +61,17 @@ module.exports = {
     },
     devtool: 'eval-source-map', //开发环境
     devServer: {
-        compress: false, // 启用Gzip压缩
+        contentBase: './dist',
+        compress: true, // 启用Gzip压缩
         historyApiFallback: true, // 为404页启用多个路径
         hot: true, // 模块热更新，配置HotModuleReplacementPlugin
         https: false, // 适用于ssl安全证书网站
         noInfo: true, // 只在热加载错误和警告
     },
     plugins: [
-        new webpack.optimize.UglifyJsPlugin(),
-        new ExtractTextPlugin("css/style.css"),
-        new webpack.DllReferencePlugin({
-            context: ROOT_PATH,
-            manifest: require(BUILD_PATH + '/bundle-manifest.json')
-        }),
-        new CopyWebpackPlugin([
-            {
-                from: './index.html',
-                to: BUILD_PATH
-            }
-        ])
+        new HtmlWebpackPlugin({
+            title: 'Hot Module Replacement'
+        })
     ]
 
 }

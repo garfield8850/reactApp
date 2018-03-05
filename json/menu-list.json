@@ -1,50 +1,95 @@
 [
   {
     "id": "1",
-    "text": "General",
+    "text": "常用网站",
     "icon": "laptop",
     "children": [
       {
         "id": "1-1",
-        "text": "Button按钮",
+        "text": "百度一下",
         "icon": "",
-        "url": "ButtonDemo",
-        "component": "ButtonDemo"
+        "url": "https://www.baidu.com"
       },
       {
         "id": "1-2",
-        "text": "图标",
+        "text": "Ant Design",
         "icon": "",
-        "url": "ButtonDemo",
-        "component": "IconDemo"
+        "url": "https://ant.design/index-cn"
       },
       {
         "id": "1-3",
-        "text": "FRAME",
+        "text": "quick ui",
         "icon": "",
-        "url": "https://www.baidu.com",
-        "component": "JFrame"
+        "url": "http://www.uileader.com/product_quickui.html",
+        "target":"blank"
+      },
+      {
+        "id": "1-4",
+        "text": "JSON 服务器",
+        "icon": "",
+        "url": "https://www.easy-mock.com/",
+        "target":"blank"
       }
     ]
   },
   {
     "id": "2",
-    "text": "Layout",
+    "text": "API文档",
     "icon": "line-chart",
     "children": [
       {
         "id": "2-1",
-        "text": "Grid栅格",
-        "icon": "appstore-o",
-        "url": "GirdDemo",
-        "component": "GirdDemo"
+        "text": "Button 按钮",
+        "icon": "",
+        "url": "https://ant.design/components/tabs-cn/"
       },
       {
         "id": "2-2",
-        "text": "Layout布局",
-        "icon": "appstore-o",
-        "url": "LayoutDemo",
-        "component": "LayoutDemo"
+        "text": "Icon 图标",
+        "icon": "",
+        "url": "https://ant.design/components/icon-cn/"
+      },
+      {
+        "id": "2-3",
+        "text": "Grid 栅格",
+        "icon": "",
+        "url": "https://ant.design/components/grid-cn/"
+      },
+      {
+        "id": "2-4",
+        "text": "Layout 布局",
+        "icon": "",
+        "url": "https://ant.design/components/layout-cn/"
+      },
+      {
+        "id": "2-5",
+        "text": "Affix 固钉",
+        "icon": "",
+        "url": "https://ant.design/components/affix-cn/"
+      },
+      {
+        "id": "2-6",
+        "text": "Breadcrumb 面包屑",
+        "icon": "",
+        "url": "https://ant.design/components/breadcrumb-cn/"
+      },
+      {
+        "id": "2-7",
+        "text": "Dropdown 下拉菜单",
+        "icon": "",
+        "url": "https://ant.design/components/dropdown-cn/"
+      },
+      {
+        "id": "2-8",
+        "text": "Menu 导航菜单",
+        "icon": "",
+        "url": "https://ant.design/components/menu-cn/"
+      },
+      {
+        "id": "2-9",
+        "text": "Icon 图标",
+        "icon": "",
+        "url": "https://ant.design/components/icon-cn/"
       }
     ]
   },

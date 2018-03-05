@@ -39,3 +39,113 @@ body {
 .sub-menu {
     display: none;
 }
+
+.ant-tabs-bar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.ant-tabs-content {
+    height: 100%;
+    padding-top: 40px;
+}
+
+.user_right {
+    float: right;
+    height: 64px;
+    line-height: 64px;
+}
+
+.user_dropdown {
+    cursor: pointer;
+    padding: 0 12px;
+    display: inline-block;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    height: 100%;
+}
+
+.message_badge {
+    margin-right: 10px;
+}
+
+.message_icon {
+    font-size: 24px;
+    color: #fff;
+}
+
+.user_photo {
+    margin: 16px 10px;
+    background: #87d068;
+    vertical-align: middle;
+}
+
+.login_name {
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.right_silder {
+    width: 0px;
+    position: fixed;
+    background: #002140;
+    display: none;
+    height: 100%;
+    top: 64px;
+    right: 0;
+    z-index: 100;
+}
+
+.right_silder.show {
+    width: 200px;
+    display: block;
+    animation: rightSilder 1s;
+    -webkit-animation: rightSilder 1s;
+}
+
+.right_silder.hide {
+    width: 0px;
+    display: block;
+    animation: rightSilderHide 1s;
+    -webkit-animation: rightSilderHide 1s;
+}
+
+@keyframes rightSilderHide {
+    from {
+        width: 200px;
+    }
+    to {
+        width: 0px;
+    }
+}
+
+@-webkit-keyframes rightSilderHide /*Safari and Chrome*/
+{
+    from {
+        width: 200px;
+    }
+    to {
+        width: 0px;
+    }
+}
+
+@keyframes rightSilder {
+    from {
+        width: 0px;
+    }
+    to {
+        width: 200px;
+    }
+}
+
+@-webkit-keyframes rightSilder /*Safari and Chrome*/
+{
+    from {
+        width: 0px;
+    }
+    to {
+        width: 200px;
+    }
+}

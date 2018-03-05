@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, HashRouter, Route, hashHistory, Switch} from 'react-router-dom'
 import {RouterAppConfig} from './common/router'
-import PropTypes from "prop-types";
 import './common/react-extend';
 import tool, {Style} from './common/react-tool';
 import {Layout, Tabs} from 'antd';
@@ -15,7 +14,9 @@ import './css/index.css';
 
 import JFMenu from './components/JFMenu';
 import Login from './Login';
-import Demo from './html/Demo';
+import JFrame from "./components/JFrame";
+import JHeadMenu from "./components/JHeadMenu";
+
 
 const {Header, Footer, Sider, Content} = Layout;
 const TabPane = Tabs.TabPane;
@@ -28,21 +29,15 @@ class App extends Component {
             menuData: [],
             panes: [{id: 'home', text: '首页', closable: false, component: ''}],
             activeKey: 'home',
-            collapsed: false
+            collapsed: false,
+            mode: 'nav1'
         }
 
-        this.childContextTypes = {
-            color: PropTypes.string
-        }
         this.onEdit = this.onEdit.bind(this);
+        this.onChange = this.onChange.bind(this);
         this.onCollapse = this.onCollapse.bind(this);
     }
 
-    getChildContext() {
-        return {
-            color: "red",
-        }
-    }
 
     style() {
         return {
@@ -55,7 +50,7 @@ class App extends Component {
 
     /*加载菜单数据*/
     loadMenuData() {
-        React.httpGet('json/menu-list.json').then((res) => {
+        React.httpGet('https://www.easy-mock.com/mock/5a97a928d0638e626376df03/react/menulist').then((res) => {
             this.setState({menuData: res.data})
         });
     }
@@ -112,42 +107,67 @@ class App extends Component {
     /*进入菜单*/
     intoMenu({item, key, keyPath}) {
         const menuData = item.props.data;
+        const target = menuData['target'];
+        if (target && target == 'blank') {
+            window.open(menuData.url);
+            return;
+        }
         this.addTab(menuData);
         // this.props.history.push(menuData.url);
     }
 
     /*渲染DOM*/
     render() {
-        return (
-            <div style={{height: '100%'}}>
+        if (this.state.mode == 'nav1') {
+            return (
                 <Layout style={{height: '100%'}}>
                     <Header>
+                        <JHeadMenu></JHeadMenu>
                     </Header>
-                    <Layout style={{height: '100%'}}>
+                    <Layout>
                         <Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
                             <JFMenu menuData={this.state.menuData} intoMenu={this.intoMenu.bind(this)}></JFMenu>
                         </Sider>
-                        <Content>
-                            <Tabs
-                                hideAdd
-                                onChange={this.onChange}
-                                activeKey={this.state.activeKey}
-                                type="editable-card"
-                                onEdit={this.onEdit}
-                                style={tool.fit}
-                                ref="mainTab"
-                            >
-                                {this.state.panes.map(pane => <TabPane style={{height: '100%', padding: '20px'}} tab={pane.text} key={pane.id} closable={pane.closable}>
-                                    <Switch>
-                                        <Route path="/" component={RouterAppConfig[pane.component]} menu-url={pane.url}></Route>
-                                    </Switch>
-                                </TabPane>)}
-                            </Tabs>
-                        </Content>
+                        <Layout>
+                            <Content>
+                                <Tabs
+                                    hideAdd
+                                    onChange={this.onChange}
+                                    activeKey={this.state.activeKey}
+                                    type="editable-card"
+                                    onEdit={this.onEdit}
+                                    style={tool.fit}
+                                    ref="mainTab"
+                                >
+                                    {this.state.panes.map(pane => {
+                                        if (pane.url) {
+                                            return <TabPane style={{height: '100%', padding: '20px'}} tab={pane.text} key={pane.id} closable={pane.closable}>
+                                                <JFrame src={pane.url}></JFrame>
+                                            </TabPane>
+                                        } else {
+                                            return <TabPane style={{height: '100%', padding: '20px'}} tab={pane.text} key={pane.id} closable={pane.closable}>
+                                                <Switch>
+                                                    <Route path="/" component={RouterAppConfig[pane.component]} menu-url={pane.url}></Route>
+                                                </Switch>
+                                            </TabPane>
+                                        }
+                                    })}
+                                </Tabs>
+
+                            </Content>
+                        </Layout>
                     </Layout>
                 </Layout>
-            </div>
-        );
+            );
+        }
+        if (this.state.mode == 'nav2') {
+
+        }
+        if (this.state.mode == 'nav3') {
+
+        }
+
+
     }
 }
 
