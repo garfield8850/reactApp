@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import Icon from "./Icon";
 
+
+/**
+ * 菜单项
+ */
 class MenuItem extends Component {
 
     into(data, e) {

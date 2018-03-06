@@ -3,6 +3,10 @@ import {Menu, Icon, Button} from 'antd';
 
 const {SubMenu} = Menu;
 
+
+/**
+ * 菜单
+ */
 class JFMenu extends Component {
 
     constructor(props) {

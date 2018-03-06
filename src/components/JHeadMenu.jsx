@@ -1,7 +1,13 @@
 import React, {Component} from 'react';
-import {Dropdown, Menu, Icon, Avatar, Badge, Popover} from 'antd';
+import {Dropdown, Menu, Icon, Avatar, Badge, Popover, Tooltip} from 'antd';
 import PropTypes from 'prop-types';
 
+import Tool from '../common/react-tool';
+
+
+/**
+ * 头部右边菜单区域
+ */
 class JHeadMenu extends Component {
 
 
@@ -27,13 +33,24 @@ class JHeadMenu extends Component {
                 </Menu.Item>
             </Menu>
         );
+
+        this.state = {
+            isFullScreen: false
+        }
     }
 
     changeMode() {
-        console.log(this.context)
         this.context.showRightSlider()
     }
 
+    changeScreen(e) {
+        this.setState({isFullScreen: !this.state.isFullScreen})
+        if (this.state.isFullScreen) {
+            Tool.fullScreen();
+        } else {
+            Tool.exitFullscreen();
+        }
+    }
 
     render() {
         const text = <span>Title</span>;
@@ -43,8 +60,19 @@ class JHeadMenu extends Component {
                 <p>Content</p>
             </div>
         );
+        let screenIcon = null;
+        if (this.state.isFullScreen) {
+            screenIcon = <Tooltip placement="topLeft" title="正常显示" arrowPointAtCenter>
+                <Icon onClick={(e) => this.changeScreen(e)} className="fullscreen_icon" type="shrink"/>
+            </Tooltip>
+        } else {
+            screenIcon = <Tooltip placement="topLeft" title="全屏显示" arrowPointAtCenter>
+                <Icon onClick={(e) => this.changeScreen(e)} className="fullscreen_icon" type="arrows-alt"/>
+            </Tooltip>
+        }
         return (
             <div className="user_right">
+                {screenIcon}
                 <Popover placement="bottomRight" title={text} content={content}>
                     <Badge className="message_badge" count={15}>
                         <Icon className="message_icon" type="mail"/>

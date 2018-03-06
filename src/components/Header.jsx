@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 
-class Header extends Component {
 
+/**
+ * 头部
+ */
+class Header extends Component {
 
 
     style() {

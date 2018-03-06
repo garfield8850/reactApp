@@ -5,6 +5,9 @@ import PropTypes from 'prop-types';
 
 const FormItem = Form.Item;
 
+/**
+ * 右侧滑栏
+ */
 class RightSilder extends Component {
 
     constructor(props) {
@@ -17,7 +20,7 @@ class RightSilder extends Component {
         this.thread = null;
     }
 
-
+    /*切换主题模式*/
     onChange(e) {
         this.setState({
             value: e.target.value,
@@ -25,6 +28,7 @@ class RightSilder extends Component {
         this.context.changeMode(e.target.value)
     }
 
+    /*渲染*/
     render() {
         const RadioGroup = Radio.Group;
         const radioStyle = {
@@ -65,20 +69,25 @@ class RightSilder extends Component {
         )
     }
 
+
+    /*显示*/
     show() {
         this.refs.rightSilder.className = 'right_silder show';
     }
 
+    /*隐藏*/
     hide() {
         this.refs.rightSilder.className = 'right_silder hide';
     }
 
+    /*鼠标移入事件*/
     onMouseOver() {
         clearTimeout(this.thread);
         this.thread = null;
     }
 
 
+    /*鼠标移出事件*/
     onMouseOut() {
         if (!this.thread) {
             this.thread = setTimeout(() => {

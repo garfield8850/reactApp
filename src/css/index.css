@@ -67,7 +67,7 @@ body {
 }
 
 .user_photo {
-    margin-right: 8px!important;
+    margin-right: 8px !important;
 }
 
 .message_badge {
@@ -89,6 +89,13 @@ body {
     color: #fff;
     font-weight: bold;
     font-size: 16px;
+}
+
+.fullscreen_icon {
+    color: #fff;
+    font-size: 16px;
+    margin-right: 20px;
+    cursor: pointer;
 }
 
 .right_silder {

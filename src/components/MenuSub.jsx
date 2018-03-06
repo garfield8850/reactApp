@@ -1,5 +1,9 @@
 import React, {Component} from 'react';
 
+
+/**
+ * 子菜单
+ */
 class MenuSub extends Component {
 
     render() {

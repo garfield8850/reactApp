@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter, HashRouter, Route, hashHistory, Switch} from 'react-router-dom'
 import './common/react-extend';
-import tool, {Style} from './common/react-tool';
 import PropTypes from 'prop-types';
 import zh_CN from 'antd/lib/locale-provider/zh_CN';
 import 'moment/locale/zh-cn'
@@ -26,6 +25,7 @@ class App extends Component {
 
     }
 
+    /*应用上下文*/
     getChildContext() {
         var self = this;
         return {

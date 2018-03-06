@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 
 
+/**
+ * 布局
+ */
 class Layout extends Component {
 
     style() {

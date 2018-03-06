@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import MenuItem from 'MenuItem'
 import MenuSub from "./MenuSub";
 
+/**
+ * 菜单
+ */
 class Menu extends Component {
 
     componentWillMount() {

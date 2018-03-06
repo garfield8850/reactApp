@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 
 
+/**
+ * 图标
+ */
 class Icon extends Component {
 
     render() {

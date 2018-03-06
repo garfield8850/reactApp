@@ -30,6 +30,7 @@ class Index extends Component {
     }
 
 
+    /*样式设置*/
     style() {
         return {
             header: {width: '100%', height: '50px', background: 'rgba(50, 116, 218,0.4)', fontSize: '30px', lineHeight: '50px', color: '#fff', padding: '0 20px'},
@@ -46,11 +47,13 @@ class Index extends Component {
         });
     }
 
+    /*生命周期组件完成挂载*/
     componentDidMount() {
         this.loadMenuData()
 
     }
 
+    /*展开菜单*/
     onCollapse(collapsed) {
         this.setState({collapsed});
     }
@@ -59,6 +62,7 @@ class Index extends Component {
     onChange(activeKey) {
         this.setState({activeKey});
     }
+
 
     onEdit(targetKey, action) {
         this[action](targetKey);
@@ -79,6 +83,8 @@ class Index extends Component {
 
     }
 
+
+    /*删除Tab*/
     remove(targetKey) {
         let activeKey = this.state.activeKey;
         let lastIndex;
@@ -257,7 +263,6 @@ class Index extends Component {
                 </Layout>
             );
         }
-
 
     }
 }

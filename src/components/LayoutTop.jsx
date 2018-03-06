@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 
 
+/**
+ * 顶部布局
+ */
 class LayoutTop extends Component {
 
 
